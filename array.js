@@ -1,4 +1,5 @@
-var numbers = [3, 5, 6, 7, 3];
+//This comment by mudi
+var numbers = [3, 5, 6, 7, 300];
 
 
 // var middleItem = [(numbers.length - 1) / 2];
