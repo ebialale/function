@@ -1,40 +1,45 @@
 // const a = [3, 7, 3, 3, 3, 4, 4, 3, 8, 3];
 // const b = 3;
-// var total = 0;
+// var numOfBOcurrences = 0;
 
 // a.forEach(function(num) {
 //     if (num === b) {
-//         total++
+//         numOfBOcurrences++
 //     }
 // })
 
-// console.log(total);
+// console.log(numOfBOcurrences);
 
 
 
-// This is the Second assignment
+//This is the Second assignment
 
-// const numberA = 9;
-// const numbersB = [3, 10, 7, 12, 9, 1, 0];
+const a = 9;
+const b = 4;
+const c = [3, 10, 7, 12, 9, 1];
 
-// var ans = 0;
+var newArray = [];
 
-// numbersB.forEach(function test(num) {
-//     if (num < numberA) {
-//         console.log(num)
-//     }
-// })
+c.forEach(function(num) {
+    if (num > 0 && num < a) {
+        newArray.push(num);
+    }
+})
+console.log(newArray)
+
+// //This is the modification
+
+// var a = 17;
+// var b = 9;
+// var arr = new Array ();
+// const c = [3, 10, 7, 12, 9, 1, 0];
 
 
-// This is the modification
-
-var a = 17;
-var b = 9;
-var arr = new Array (a - b - 1);
-const c = [3, 10, 7, 12, 9, 1, 0];
+// var newArray = [];
+// var arr = new Array ();
 
 
-for ( var i = 0; i < arr.length; i++, a--) {
-    arr[i] = a;
-}
- console.log(arr)
+// for ( var i = 0; i < arr.length; i++, a--) {
+//     arr[i] = a;
+// }
+//  console.log(arr)
