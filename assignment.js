@@ -1,14 +1,14 @@
-// const a = [3, 7, 3, 3, 3, 4, 4, 3, 8, 3];
-// const b = 3;
-// var numOfBOcurrences = 0;
+const a = [3, 7, 3, 3, 3, 4, 4, 3, 8, 3];
+const b = 3;
+var numOfBOcurrences = 0;
 
-// a.forEach(function(num) {
-//     if (num === b) {
-//         numOfBOcurrences++
-//     }
-// })
+a.forEach(function(num) {
+    if (num === b) {
+        numOfBOcurrences++
+    }
+})
 
-// console.log(numOfBOcurrences);
+console.log(numOfBOcurrences);
 
 
 
@@ -29,17 +29,23 @@ console.log(newArray)
 
 // //This is the modification
 
-// var a = 17;
-// var b = 9;
-// var arr = new Array ();
-// const c = [3, 10, 7, 12, 9, 1, 0];
+const a = 25;
+const b = 14;
+const c = [3, 10, 7, 12, 9, 1];
+var newArray = [];
 
+if (a < b){
+    c.forEach(function(num) {
+        if (num > a && num < b) {
+            newArray.push(num);
+        }
+    })
+} else if (a > b){
+    c.forEach(function(num) {
+        if (num < a && num < b) {
+            newArray.push(num);
+        }
+    })
+}
 
-// var newArray = [];
-// var arr = new Array ();
-
-
-// for ( var i = 0; i < arr.length; i++, a--) {
-//     arr[i] = a;
-// }
-//  console.log(arr)
+console.log(newArray)
