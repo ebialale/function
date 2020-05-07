@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment</title>
+        <script src="assignment.js"></script>
+
+       
+  
+       
+
+    </head>
+
+    <body>
+        <div>
+            <h1>This is the First Assignment</h1>
+            <br>
+            <label>Numbers:</label>
+            <input type="text" id="numbers" value="" placeholder="Put your numbers!">
+            <br>
+            <br>
+            <label>Number:</label>
+            <input type="text" id="aNumber" value="" placeholder="Put a number"><br><br>
+            <button onclick="myFunction()">Click</button>
+            <p id="ans"></p>
+
+            <script>
+                function myFunction() {
+                    var x = document.getElementById('numbers').value;
+                    var b = document.getElementById('aNumber').value;                   
+                    var a = x.split(','). map(function(numValue) {
+                        return Number(numValue);
+                    });
+                    var answer = thisFunction(Number(b), a);
+                   
+                    document.getElementById('ans').innerHTML = answer;
+
+                }
+                    
+            </script>
+
+        </div>
+       
+
+        <div>
+            <br>
+            <br>
+             <h1>This is the Second Assignment</h1>
+            <label>Numbers:</label>
+            <input type="text" id="arrayNumbers" value="" placeholder="Type your numbers!"><br><br>
+            <label>Number1:</label>
+            <input type="text" id="number1" value="" placeholder="Type a number"><br><br>
+            <label>Number2:</label>
+            <input type="text" id="number2" value="" placeholder="Type another number"><br><br>
+            <button onclick="testFunction()">Click me</button>
+            <p id="answer2"></p>
+
+
+        <script>
+            function testFunction() {
+                var array = document.getElementById('arrayNumbers').value;
+                var num1 = document.getElementById('number1').value;
+                var num2 = document.getElementById('number2').value;
+                var splitArray = array.split(',').map(function(value) {
+                    return Number(value);
+                });
+
+                var secondAnswer = secondAssignment(num1, num2, splitArray);
+               
+                document.getElementById('answer2').innerHTML = secondAnswer;
+            }
+            
+            
+
+        </script>
+
+
+
+
+
+        </div>
+        
+        
+
+
+
+    </body>
+</html>

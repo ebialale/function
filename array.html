@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Array</title>
+
+        <script src="array.js"></script>
+        
+
+    </head>
+
+    <body>
+        <p>This is an Array</p>
+
+        <div>
+            <label >Numbers:</label>
+            <input type="text" id="numbers"><br><br>
+            
+            <button onclick="sample()">Calculate</button>
+            <p id="answer"></p>
+        </div>
+                    
+           
+
+        
+        <script>
+            function sample() {
+               var value = document.getElementById('numbers').value;
+               
+               var array = value.split(',').map(function(stringValue) {
+                   return Number(stringValue);
+               });
+               console.log(array)
+               var answer = calculate(array);
+
+               var answerElement = document.getElementById('answer');
+               answerElement.innerHTML = answer;
+            }
+
+        </script>
+    </body>
+
+</html>
+
