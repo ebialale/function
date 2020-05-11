@@ -1,80 +1,93 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>test</title>
-        <link rel="stylesheet" type="text/css" href="test.css">
-        <script src="dummy.js"></script>
-        
 
-    </head>
+<head>
+    <title>test</title>
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <script src="dummy.js"></script>
+</head>
 
-    <body>
-        <h1>Welcome to CBN</h1>
-            <label>Account Numbers:</label>
-            <input type="text" id="acctNumbers" value="" placeholder="Type your numbers!"><br><br>
-            <button onclick="customerFunction()">Click me</button>
-            <p id="answer2"></p>
+<body>
+    <h1>Welcome to CBN</h1>
+    <label>Account Numbers:</label>
+    <input type="text" id="acctNumbers" value="" placeholder="Type your numbers!"><br><br>
+    <button onclick="customerFunction()">Click me</button>
 
-            <table>
-                <tr>
-                  <th>Name:</th>
-                  <td id="name"></td>
-                </tr>
-                <tr>
-                    <th>Sex:</th>
-                    <td id="sex"></td>
-                </tr>
-                
-                <tr>
-                    <th>Age:</th>
-                    <td id="age"></td>
-                </tr>
-                <tr>
-                    <th>DateOpened:</th>
-                    <td id="dateopened"></td>
-                </tr>
-                <tr>
-                    <th>Deposit:</th>
-                    <td w3 id="deposit"></td>
-                    <td  id="deposit2"></td>
-                    
-                  </tr>
-                <tr>
-                  <th>AccountBalance:</th>
-                  <td id="acctBalance"></td>
-                </tr>
-
-                <tr>
-                    <th>Date of Transaction:</th>
-                    <td id="Transaction"></td>
-                  </tr>
-                  
-            </table>
-
-
+    <div id="info-1">
+    </div>
+    <div class="row">
+        <div>Deposits</div>
+    </div>
+    <div id="deposits-container">
+    </div>
+    <div id="info-2">
+    </div>
 
     <script>
-        function custName() {
+        function customerFunction() {
+            var value = document.getElementById('acctNumbers').value;
+            var accountNumbers = value.split(',');
 
+            var customerAccount = testFunction(accountNumbers).customerAccount;
+
+            const info1 = [
+                {
+                    label: "Name",
+                    value: customerAccount.name
+                },
+                {
+                    label: "Age",
+                    value: customerAccount.age
+                }
+            ];
+
+            const info2 = [
+                {
+                    label: "Sex",
+                    value: customerAccount.sex
+                },
+                {
+                    label: "DateOpened",
+                    value: customerAccount.dateAccWasOpened
+                }
+            ];
+
+            document.getElementById("info-1").innerHTML = getRows(info1);
+            document.getElementById("info-2").innerHTML = getRows(info2);
+
+            // Start Deposits Section 
+            const deposits = customerAccount.deposits;
+
+            const depositRows = deposits.map(function (deposit) {
+                return '<div class="row">' +
+                            '<div></div>' +
+                            '<div>' + deposit.amount + '</div>' +
+                            '<div>' + deposit.dateOfTransaction + '</div>' +
+                        '</div>';
+            });
+
+            document.getElementById("deposits-container").innerHTML = depositRows;
+            // End Deposits Section
+
+        };
+
+        function getRows(infos) {
+            const infoRows = infos.map(function(info){
+                return '<div class="row">' +
+                            '<div>' + info.label + '</div>' +
+                            '<div>' + info.value + '</div>' +
+                        '</div>';
+            });
+
+            return infoRows;
         }
-    </script>
 
-        
-    <script>
-            function customerFunction() {
-                var value = document.getElementById('acctNumbers').value;
-                var accountNumbers = value.split(',');
-                
-                var accounts = testFunction(accountNumbers);
-            };
-          
 
     </script>
 
-       
 
 
-    </body>
+
+</body>
 
 </html>
-

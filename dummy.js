@@ -80,6 +80,14 @@ function getCustomersData(accountNumbers) {
                     amount: 40,
                     dateOfTransaction: '21 December 2019'
                 },
+                {
+                    amount: 3333,
+                    dateOfTransaction: '25 December 2020'
+                },
+                {
+                    amount: 7777,
+                    dateOfTransaction: '01 Janaury 2020'
+                }
             ],
             withdrawals: [
                 {
@@ -109,9 +117,9 @@ function getCustomersData(accountNumbers) {
     return fetchedAccounts;
 }
 
-var accountNumbers = ['1021787909', '1211332101', '1090999991', '004412987', '0021988343'];
+//var accountNumbers = ['1021787909', '1211332101', '1090999991', '004412987', '0021988343'];
 
-// 1021787909,1211332101,1090999991,004412987, 0021988343
+// 1021787909,1211332101,1090999991,004412987,0021988343
 
 // console.log(testFunction(accountNumbers))
 
@@ -147,4 +155,4 @@ function testFunction (accountNumbers) {
 
 
 
-console.log(testFunction(accountNumbers))
+//console.log(testFunction(accountNumbers))
