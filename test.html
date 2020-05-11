@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Array</title>
+        <link rel="stylesheet" type="text/css" href="test.css">
+        <script src="dummy.js"></script>
+        
+
+    </head>
+
+    <body>
+        <h1>Welcome to CBN</h1>
+            <label>Account Numbers:</label>
+            <input type="text" id="acctNumbers" value="" placeholder="Type your numbers!"><br><br>
+            <button onclick="customerFunction()">Click me</button>
+            <p id="answer2"></p>
+            <table>
+                <tr>
+                  <th>Name</th>
+                  <th colspan="2">Deposit</th>
+                  <th>Sex</th>
+                  <th>Age</th>
+                </tr>
+
+                <tr>
+                  <td id="name">ebi</td>
+                  <td id="deposit"></td>
+                  <td id="sex"></td>
+                  <td id="age"></td>
+                  
+                </tr>
+                
+              
+              </table>
+
+
+
+    <script>
+        function custName() {
+
+        }
+    </script>
+
+        
+    <script>
+            function customerFunction() {
+                var value = document.getElementById('acctNumbers').value;
+                var accountNumbers = value.split(',').map(function(accountNumber) {
+                    return String(accountNumber)
+                });
+                
+
+                var result = testFunction(accountNumbers);
+
+
+                document.getElementById('name').innerHTML = result.customerAccount.name;
+                var test = document.getElementById('deposit').innerHTML = result.customerAccount.deposits
+                console.log(test)
+
+                // document.getElementById('answer2').innerHTML = JSON.stringify(result, null, 5);
+
+
+            };
+          
+
+    </script>
+
+       
+
+
+    </body>
+
+</html>
+
