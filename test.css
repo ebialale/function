@@ -1,27 +1,27 @@
 body {
-    background-color: cadetblue;
+background-color: green;
 }
 
 h1 {
-    text-align: center;
+text-align: center;
 }
 
 .row {
-    clear: both;
+clear:both;
 }
 
 .row div {
-    float: left;
-    border: 1px solid #ddd;
-    padding: 5px 15px;
-    min-width: 85px;
-    min-height: 18px;
+float: left;
+border: 1px solid #ddd;
+padding: 5px 15px;
+min-width: 85px;
+min-height: 18px;
 }
 
-#container > .row {
+/* #container > .row {
     padding: 0;
     border: none;
-}
+} */
 
 /* 
 table, th, td {

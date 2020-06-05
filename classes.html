@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment</title>
+        <script src="classes.js"></script>
+
+       
+  
+       
+
+    </head>
+
+    <body>
+        <div>
+            <h1>Baby Class</h1>
+            <br>
+            <label>Name:</label>
+            <input type="text" id="name" value="" placeholder="Put your baby's Name!">
+            <br>
+            <br>
+            <label>Skin Color:</label>
+            <input type="text" id="skinColor" value="" placeholder="Skin Color"><br><br>
+            <label>LastYearAge:</label>
+            <input type="text" id="lastYearAge" value="" placeholder="Put your baby's age!">
+            <br>
+            <br>            
+            <button onclick="myFunction()">Baby's Current Age</button>
+            <p id="currentAge"></p>
+            <br>
+            <label>What baby can say:</label>
+            <input type="text" id="babyWord" value="" placeholder="Input word">
+            <br>
+            <br>
+            <button onclick="myFunction()">Talk</button>
+            <p id="talk"></p>
+
+            <script>
+                function myFunction() {
+                    var babyName = (document.getElementById('name').value);
+                    var babyColor = document.getElementById('skinColor').value;
+                    var babyAge = document.getElementById('lastYearAge').value;
+                    var babyTalk = document.getElementById('babyWord').value;   
+                                   
+                    var newBaby = new Baby(babyName, babyColor, Number(babyAge));
+                   
+                    document.getElementById('currentAge').innerHTML = 'Your baby is ' + newBaby.age + 'years old.';
+                    document.getElementById('talk').innerHTML ='Your baby can say:  ' + newBaby.talk(babyTalk);
+
+                    console.log(newBaby)
+                }
+
+               
+                
+              
+            </script>
+
+        </div>
+        
+        
+
+
+
+    </body>
+</html>

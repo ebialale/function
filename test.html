@@ -1,74 +1,92 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Array</title>
-        <link rel="stylesheet" type="text/css" href="test.css">
-        <script src="dummy.js"></script>
-        
 
-    </head>
+<head>
+    <title>test</title>
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <script src="test.js"></script>
+</head>
 
-    <body>
-        <h1>Welcome to CBN</h1>
-            <label>Account Numbers:</label>
-            <input type="text" id="acctNumbers" value="" placeholder="Type your numbers!"><br><br>
-            <button onclick="customerFunction()">Click me</button>
-            <p id="answer2"></p>
-            <table>
-                <tr>
-                  <th>Name</th>
-                  <th colspan="2">Deposit</th>
-                  <th>Sex</th>
-                  <th>Age</th>
-                </tr>
+<body>
+    <h1>Welcome to CBN</h1>
+    <label>Account Numbers:</label>
+    <input type="text" id="acctNumbers" value="" placeholder="Type your numbers!"><br><br>
+    <button onclick="customerFunction()">Click me</button>
 
-                <tr>
-                  <td id="name">ebi</td>
-                  <td id="deposit"></td>
-                  <td id="sex"></td>
-                  <td id="age"></td>
-                  
-                </tr>
-                
-              
-              </table>
-
-
+    <div id="infos-container">
+    </div>
+    <div class="row">
+        <div>Deposits</div>
+    </div>
+    <div id="deposits-container">
+    </div>
 
     <script>
-        function custName() {
+        function customerFunction() {
+            var value = document.getElementById('acctNumbers').value;
+            var accountNumbers = value.split(',');
 
-        }
+            var customerAccount = testFunction(accountNumbers).customerAccount;
+
+            const infos = [
+                {
+                    label: "Name",
+                    value: customerAccount.name
+                },
+                {
+                    label: "Age",
+                    value: customerAccount.age
+                },
+                {
+                    label: "Sex",
+                    value: customerAccount.sex
+                },
+                {
+                    label: "DateOpened",
+                    value: customerAccount.dateAccWasOpened
+                }
+            ];
+
+            const infoRows = infos.map(function(info) {
+                return '<div class="row">' +
+                            '<div>' + info.label + '</div>' +
+                            '<div>' + info.value + '</div>' +
+                        '</div>';
+            });
+            console.log(infoRows.join(''))
+            document.getElementById("infos-container").innerHTML = infoRows.join('');
+
+            // Start Deposits Section 
+            const depositRows = customerAccount.deposits.map(function (deposit) {
+                return '<div class="row">' +
+                            '<div></div>' +
+                            '<div>' + deposit.amount + '</div>' +
+                            '<div>' + deposit.dateOfTransaction + '</div>' +
+                        '</div>';
+            });
+
+            document.getElementById("deposits-container").innerHTML = depositRows.join('');
+            // End Deposits Section
+
+        };
+
+        // function getRows(infos) {
+        //     // const infoRows = infos.map(function(info){
+        //     //     return '<div class="row">' +
+        //     //                 '<div>' + info.label + '</div>' +
+        //     //                 '<div>' + info.value + '</div>' +
+        //     //             '</div>';
+        //     // });
+
+        //     return infoRows;
+        // }
+
+
     </script>
 
-        
-    <script>
-            function customerFunction() {
-                var value = document.getElementById('acctNumbers').value;
-                var accountNumbers = value.split(',').map(function(accountNumber) {
-                    return String(accountNumber)
-                });
-                
-
-                var result = testFunction(accountNumbers);
 
 
-                document.getElementById('name').innerHTML = result.customerAccount.name;
-                var test = document.getElementById('deposit').innerHTML = result.customerAccount.deposits
-                console.log(test)
 
-                // document.getElementById('answer2').innerHTML = JSON.stringify(result, null, 5);
-
-
-            };
-          
-
-    </script>
-
-       
-
-
-    </body>
+</body>
 
 </html>
-

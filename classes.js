@@ -10,8 +10,8 @@ class Baby {
         return word;
     }
 }
-var ebi = new Baby('Ebi', 'Black', 1); // tata
-var mudi = new Baby('Mudi', 'Yellow', 21); // mama
+// var ebi = new Baby('Ebi', 'Black', 1); // tata
+// var mudi = new Baby('Mudi', 'Yellow', 21); // mama
 
 
-console.log(mudi.talk(word)) 
+// console.log(mudi.talk('tata')) 

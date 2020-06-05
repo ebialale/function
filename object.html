@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Array</title>
-        <link rel="stylesheet" type="text/css" href="test.css">
+        <title>Object</title>
+        <!-- <link rel="stylesheet" type="text/css" href="test.css"> -->
         <script src="object.js"></script>
         
 
@@ -13,73 +13,86 @@
             <label>Account Numbers:</label>
             <input type="text" id="acctNumbers" value="" placeholder="Type your numbers!"><br><br>
             <button onclick="customerFunction()">Click me</button>
-            <p id="answer2"></p>
-
-            <table>
-                <tr>
-                  <th>Name:</th>
-                  <th>Age:</th>
-                  <th>Sex:</th>
-                  <th>Deposits:</th>
-                  <th>Withdrawals:</th>
-                  
-                </tr>
             
-                <tr>
-                  <td id="name"></td>
-                  <td id="age"></td>
-                  <td id="sex"></td>
-                  <td id="deposits"></td>
-                  <td id="Withdrawals"></td>
-                  
-                  
-                </tr>
-               
-            </table>
 
 
+
+
+        <div class="row">
+            <div>Name</div>
+            <div>Sex</div>
+            <div>Age</div>
+            <div>Deposits</div>
+            <div>Withdrawals</div>
+        </div>
+
+        <div id="display-container">
+
+        </div>
+      
+        <!-- <div class="row">
+            <div>Ebi</div>
+            <div>male</div>
+            <div>21</div>
+        </div> -->
+            
+        
+       
+           
+    <style>
+        body {
+            background-color: green;
+        }
+        h1 {
+            text-align: center;
+        }
+        .row {
+            clear: left;
+        }
+        .row div{
+            float:left;
+            border: 1px solid #ddd;
+            padding: 5px 15px;
+            min-width: 85px;
+            min-height: 18px;
+
+        }
+    </style>
 
     <script>
-        function custName() {
+        function customerFunction() {
+            var value = document.getElementById('acctNumbers').value;
+            var accountNumbers = value.split(',');
+
+            var customerAccounts = getCustomersData(accountNumbers);     
+
+            const results = customerAccounts.map(function(customerDetail) {
+                return '<div class="row">' +
+                            '<div>' + customerDetail.name + '</div>' +
+                            '<div>' + customerDetail.age + '</div>' +
+                            '<div>' + customerDetail.sex + '</div>' +
+                            '<div>' + customerDetail.deposits.map(function(deposit) {
+                                    return deposit.amount
+                                }).join('-') + '</div>' +
+                            '<div>' + customerDetail.withdrawals.map(function(withdrawal) {
+                                    return withdrawal.amount
+                                }) + '</div>' +
+                        '</div>';
+            });
+     
+            // 1. get customers accountNumbers
+            // 2. search the database for records
+            // 3. get customer details(name,age,sex etc) 
+            // 4. inject result to inner HTML
+            // 5. display result in container div 
+            // 6.
+
+            document.getElementById("display-container").innerHTML = results.join('');
+         
 
         }
     </script>
-
-        
-    <script>
-            function customerFunction() {
-                var value = document.getElementById('acctNumbers').value;
-                var accountNumbers = value.split(',').map(function(accountNumber) {
-                    return String(accountNumber)
-                });
-                
-
-                var result = getCustomersData(accountNumbers);
-                console.log(result)
-
-                document.getElementById('name').innerHTML = result.accountNumbers.name;
-                document.getElementById('age').innerHTML = result.customerAccount.age;
-                document.getElementById('sex').innerHTML = result.customerAccount.sex;
-                document.getElementById('dateopened').innerHTML = result.customerAccount.dateAccWasOpened;
-                document.getElementById('acctBalance').innerHTML = result.accountBalance;
-                // var test = document.getElementById('deposit').innerHTML = result.customerAccount.deposits[0].amount
-                var test2 = document.getElementById('deposit').innerHTML = result.customerAccount.deposits;
-              console.log(result)
-               
-            //     var array = test2.length;
-            //    for (var i = 0; i < array; i++) {
-            //         console.log(test2[i].amount)
-            //    };
-                // document.getElementById('answer2').innerHTML = JSON.stringify(result, null, 5);
-
-
-            };
-          
-
-    </script>
-
-       
-
+   
 
     </body>
 

@@ -1,4 +1,3 @@
-// This entire file only tries to get us the biggest customer
 function getCustomersData(accountNumbers) {
     var dbAccounts = [
         {
@@ -7,6 +6,8 @@ function getCustomersData(accountNumbers) {
             name: 'Mudi',
             dateAccWasOpened: '20 March 2018',
             loans: null,
+            age: '20',
+            sex: 'male',
             deposits: [
                 {
                     amount: 100,
@@ -36,6 +37,8 @@ function getCustomersData(accountNumbers) {
             name: 'Ebi',
             dateAccWasOpened: '29 May 2019',
             loans: 233,
+            age: '30',
+            sex: 'male',
             deposits: [
                 {
                     amount: 90,
@@ -65,6 +68,8 @@ function getCustomersData(accountNumbers) {
             name: 'Sammy',
             dateAccWasOpened: '19 November 2019',
             loans: null,
+            age: '34',
+            sex: 'male',
             deposits: [
                 {
                     amount: 100,
@@ -75,6 +80,14 @@ function getCustomersData(accountNumbers) {
                     amount: 40,
                     dateOfTransaction: '21 December 2019'
                 },
+                {
+                    amount: 3333,
+                    dateOfTransaction: '25 December 2020'
+                },
+                {
+                    amount: 7777,
+                    dateOfTransaction: '01 Janaury 2020'
+                }
             ],
             withdrawals: [
                 {
@@ -102,71 +115,44 @@ function getCustomersData(accountNumbers) {
         
     })
     return fetchedAccounts;
-};
-
-// var accountNumbers = ['1021787909', '1211332101', '1090999991', '004412987', '0021988343'];
-
-var accountNumbers = ['1021787909', '1090999991', '1211332101', '0021988343'];
-
-
-    
-var customerAccounts = getCustomersData(accountNumbers);
-var biggestCustomer = {
-    accountBalance: 0
-};
-
-customerAccounts.forEach(function(customerAccount) {
-    const acctBalance = getTransactionsSum(customerAccount.deposits) - getTransactionsSum(customerAccount.withdrawals);
-    
-    if (customerAccount.loans === null && acctBalance > biggestCustomer.accountBalance) {
-        biggestCustomer = {
-            accountBalance: acctBalance,
-            customerAccount: customerAccount
-        }
-    }
-});
-
-function getTransactionsSum(transactions) {
-    let totalTransactionAmount = 0;
-
-    transactions.forEach(function(transaction) {
-        totalTransactionAmount += transaction.amount;
-    });
-
-    return totalTransactionAmount;
 }
 
-console.log(biggestCustomer)
+var accountNumbers = ['1021787909', '1211332101', '1090999991', '004412987', '0021988343'];
+
+// 1021787909,1211332101,1090999991,004412987,0021988343
 
 // console.log(testFunction(accountNumbers))
 
+function testFunction (accountNumbers) {
+    var customerAccounts = getCustomersData(accountNumbers);
+    var biggestCustomer = {
+        accountBalance: 0
+    };
 
-// var customerAccounts = getCustomersData(accountNumbers);
-// var biggestCustomer = {
-//     accountBalance: 0
-// };
-
-// customerAccounts.forEach(function(customerAccount) {
-//     const acctBalance = getTransactionsSum(customerAccount.deposits) - getTransactionsSum(customerAccount.withdrawals);
+    customerAccounts.forEach(function(customerAccount) {
+        const acctBalance = getTransactionsSum(customerAccount.deposits) - getTransactionsSum(customerAccount.withdrawals);
     
-//     if (customerAccount.loans === null && acctBalance > biggestCustomer.accountBalance) {
-//         biggestCustomer = {
-//             accountBalance: acctBalance,
-//             customerAccount: customerAccount
-//         }
-//     }
-// });
+        if (customerAccount.loans === null && acctBalance > biggestCustomer.accountBalance) {
+            biggestCustomer = {
+                accountBalance: acctBalance,
+                customerAccount: customerAccount
+            }
+        }
+    });
 
-// function getTransactionsSum(transactions) {
-//     let totalTransactionAmount = 0;
+    function getTransactionsSum(transactions) {
+        let totalTransactionAmount = 0;
 
-//     transactions.forEach(function(transaction) {
-//         totalTransactionAmount += transaction.amount;
-//     });
+        transactions.forEach(function(transaction) {
+            totalTransactionAmount += transaction.amount;
+        });
 
-//     return totalTransactionAmount;
-// }
+        return totalTransactionAmount;
+    };
+    return biggestCustomer;
+}
 
 
 
-// console.log(biggestCustomer)
+
+console.log(testFunction(accountNumbers))

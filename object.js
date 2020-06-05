@@ -70,6 +70,8 @@ function getCustomersData(accountNumbers) {
             accountNumber: '1021787909',
             bvn:'198797989',
             name: 'Mudi',
+            age:'11',
+            sex: 'male',
             dateAccWasOpened: '20 March 2018',
             loans: null,
             deposits: [
@@ -99,6 +101,8 @@ function getCustomersData(accountNumbers) {
             accountNumber: '1211332101',
             bvn:'219201237',
             name: 'Ebi',
+            age:'9',
+            sex: 'male',
             dateAccWasOpened: '29 May 2019',
             loans: [
                 {
@@ -133,6 +137,8 @@ function getCustomersData(accountNumbers) {
             accountNumber: '1090999991',
             bvn:'912754891',
             name: 'Sammy',
+            age:'13',
+            sex: 'male',
             dateAccWasOpened: '19 November 2019',
             loans: 'Nil',
             deposits: [
@@ -176,19 +182,28 @@ function getCustomersData(accountNumbers) {
 
 
 
-// var accountNumbers = ['1021787909', '1211332101', '1090999991', '004412987', '0021988343'];
+var accountNumbers = ['1021787909', '1211332101', '1090999991', '004412987', '0021988343'];
+// var accountNumbers = ['1021787909', '1090999991', '004412987', '0021988343','1211332101'];
 
-var accountNumbers = ['1021787909', '1090999991', '004412987', '0021988343'];
-var customerNames = getCustomersData(accountNumbers).map(function(acctData) {
-    var sum = 0;
-    acctData.deposits.forEach(function(deposit) {
-        sum = sum + deposit.amount;
+
+
+function thisFunction(accountNumbers) {
+    var customerNames = getCustomersData(accountNumbers).map(function(acctData) {
+        var sum = 0;
+        acctData.deposits.forEach(function(deposit) {
+            sum = sum + deposit.amount;
+        });
+    
+        return {
+            name: acctData.name,
+            acctNumber: acctData.accountNumber,
+            totalDeposit: sum
+        };
     });
+    return customerNames
+}
 
-    return {
-        name: acctData.name,
-        acctNumber: acctData.accountNumber,
-        totalDeposit: sum
-    };
-});
-console.log(customerNames)
+
+console.log(thisFunction(accountNumbers))
+
+
